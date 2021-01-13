@@ -1,4 +1,7 @@
-idade = int(input('Digite sua idade:  '))
+from datetime import date
+ano = date.today().year
+nascimento = int(input('Digite seu ano de nascimento:  '))
+idade = ano-nascimento
 print('Sua categoria de atleta é: ',end='')
 if idade>0 and idade<=9:
     print('MIRIM.')
