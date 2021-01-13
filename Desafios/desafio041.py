@@ -8,4 +8,4 @@ if media>=7:
 elif media>=5:
     print('O aluno está de {}.'.format(creturn('RECUPERAÇÃO',c='yellow')))
 else:
-    print('O aluno está {}.'.format(creturn('REPROVADO.',c='red')))
+    print('O aluno está {}.'.format(creturn('REPROVADO',c='red')))
