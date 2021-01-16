@@ -1,15 +1,13 @@
-from datetime import date
-ano = date.today().year
-nascimento = int(input('Digite seu ano de nascimento:  '))
-idade = ano-nascimento
-print('Sua categoria de atleta é: ',end='')
-if idade>0 and idade<=9:
-    print('MIRIM.')
-elif idade<=14:
-    print('INFANTIL.')
-elif idade<=19:
-    print('JÚNIOR.')
-elif idade<=25:
-    print('SÊNIOR.')
+a = float(input('Digite o tamanho da reta a:\n'))
+b = float(input('Digite o tamanho da reta b:\n'))
+c = float(input('Digite o tamanho da reta c:\n'))
+if (a+b>c and b+c>a and c+a>b):
+    if a==b and b ==c:
+        nome = 'equilátero'
+    elif a==b or b==c or a == c:
+        nome = 'isósceles'
+    else:
+        nome= 'escaleno'
+    print('Estas retas podem formar um triângulo {}.'.format(nome))
 else:
-    print('MASTER.')
+    print('Estas retas não podem formar um triângulo.')

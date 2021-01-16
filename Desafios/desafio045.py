@@ -1,19 +1,37 @@
-preco = float(input('Digite o valor das compras:\nR$'))
-print("""Escolha uma forma de pagamento:
-1. à vista dinheiro/cheque.
-2. à vista no cartão.
-3. 2x no cartão.
-4. 3x ou mais no cartão.""")
-pagamento = int(input('Sua opção:  '))
-if pagamento>=1 and pagamento<=4:
-    if pagamento == 1:
-        desconto = -10
-    elif pagamento == 2:
-        desconto = -5
-    elif pagamento == 3:
-        desconto = 0
+from modules.cores import creturn
+from random import randint
+
+def win():
+    print('Você {}'.format(creturn('VENCEU!!!',c='green')))
+def lose():
+    print('Você {}'.format(creturn('PERDEU!!!',c='red')))
+def empate():
+    print('Deu {}'.format(creturn('EMPATE',c='yellow')))
+
+options = ['pedra','papel','tesoura']
+print('Opções:\n[ 0 ] Pedra\n[ 1 ] Papel\n[ 2 ] Tesoura')
+jogador = int(input("Qual sua jogada?  ")) 
+computador = options[randint(0,2)]
+if jogador >=0 and jogador<=2:
+    jogador = options[jogador]
+    print('Você escolheu {} e o computador {}'.format(jogador,computador))
+    if jogador == computador:
+        empate()
     else:
-        desconto = 20
-    print('Sua compra de R${:.2f} irá custar R${:.2f}'.format(preco,preco+preco*desconto/100))
+        if jogador == 'pedra':
+            if computador == 'tesoura':
+                win()
+            else: 
+                lose()
+        if jogador == 'papel':
+            if computador == 'pedra':
+                win()
+            else: 
+                lose()
+        if jogador == 'tesoura':
+            if computador == 'papel':
+                win()
+            else: 
+                lose()
 else:
-    print('Opção inválida, tente novamente')
+    print('Opção inválida,tente novamente!')

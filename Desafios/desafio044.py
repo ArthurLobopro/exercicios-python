@@ -1,17 +1,19 @@
-from modules.cores import creturn,cprint
-peso = float(input('Digite seu peso em kg:\n'))
-altura = float(input('Digite sua altura: \n'))
-imc = peso/altura**2
-print(f'Seu IMC é {imc:.2f}')
-if imc<18.5:
-    print('Você está {} do peso'.format(creturn('ABAIXO',c='red')))
-elif imc<=25 :
-    print('Você tem um peso ',creturn('Ideal.',c='green'))
-else:
-    print('Você tem ',end='') 
-    if imc<=30:
-        cprint('SOBREPESO.',c='yellow')
-    elif imc<=40:
-        cprint('OBESIDADE',c='red')
+preco = float(input('Digite o valor das compras:\nR$'))
+print("""Escolha uma forma de pagamento:
+1. à vista dinheiro/cheque.
+2. à vista no cartão.
+3. 2x no cartão.
+4. 3x ou mais no cartão.""")
+pagamento = int(input('Sua opção:  '))
+if pagamento>=1 and pagamento<=4:
+    if pagamento == 1:
+        desconto = -10
+    elif pagamento == 2:
+        desconto = -5
+    elif pagamento == 3:
+        desconto = 0
     else:
-        cprint('OBESIDADE MÓRBIDA',c='red')
+        desconto = 20
+    print('Sua compra de R${:.2f} irá custar R${:.2f}'.format(preco,preco+preco*desconto/100))
+else:
+    print('Opção inválida, tente novamente')

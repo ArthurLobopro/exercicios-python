@@ -1,11 +1,15 @@
-from modules.cores import creturn
-n1 = float(input('Digite a primeira nota:  '))
-n2 = float(input('Digite a segunda nota:  '))
-media = (n1+n2)/2
-print('Com as notas {} e {} o aluno obteve a média de: {}'.format(n1,n2,media))
-if media>=7:
-    print('O aluno está {}.'.format(creturn('APROVADO',c='green')))
-elif media>=5:
-    print('O aluno está de {}.'.format(creturn('RECUPERAÇÃO',c='yellow')))
+from datetime import date
+ano = date.today().year
+nascimento = int(input('Digite seu ano de nascimento:  '))
+idade = ano-nascimento
+print('Sua categoria de atleta é: ',end='')
+if idade>0 and idade<=9:
+    print('MIRIM.')
+elif idade<=14:
+    print('INFANTIL.')
+elif idade<=19:
+    print('JÚNIOR.')
+elif idade<=25:
+    print('SÊNIOR.')
 else:
-    print('O aluno está {}.'.format(creturn('REPROVADO',c='red')))
+    print('MASTER.')
