@@ -19,7 +19,12 @@ elif opcao ==2 :
 else:
     print('Opção inválida, o programa será executado com os valores padrão.')
     sleep(3)
+j = 1
+if inicio>fim:
+    j = -1
 if inicio>fim and passo>0:
     passo = -passo
-for i in range(inicio,fim+1,passo):
+    j = -1
+
+for i in range(inicio,fim+j,passo):
     print('{} x {} = {}'.format(num,i,num*i))
