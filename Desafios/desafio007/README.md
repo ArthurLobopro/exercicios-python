@@ -1,1 +1,3 @@
-# DESAFIO007
+# DESAFIO00 7
+
+**Enunciado:** Desenvolva um programa que leia as duas notas de um aluno, calcule e mostre a sua média.
