@@ -1,3 +1,5 @@
 # DESAFIO 016
 
-**Enunciado:** Crie um programa que leia um número Real qualquer pelo teclado e mostre na tela a sua porção Inteira.
+## Enunciado: 
+
+Crie um programa que leia um número Real qualquer pelo teclado e mostre na tela a sua porção Inteira.

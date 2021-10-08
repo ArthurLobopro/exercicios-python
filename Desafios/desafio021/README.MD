@@ -1,6 +1,8 @@
 # DESAFIO 021
 
-**Enunciado:** Faça um programa em Python que abra e reproduza o áudio de um arquivo MP3.
+## Enunciado: 
+
+Faça um programa em Python que abra e reproduza o áudio de um arquivo MP3.
 
 Obs: Desafio não concluído, erro inesperado:
 

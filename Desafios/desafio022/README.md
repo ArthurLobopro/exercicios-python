@@ -1,6 +1,6 @@
 # DESAFIO 022
 
-**Enunciado:**
+## Enunciado
 
 Crie um programa que leia o nome completo de uma pessoa e mostre:
 
