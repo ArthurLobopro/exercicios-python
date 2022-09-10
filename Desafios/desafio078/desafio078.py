@@ -1,6 +1,3 @@
-import enum
-
-
 def print_arr(arr: list, custom_end="\n"):
     for i,v in enumerate(arr):
         end= custom_end if len(arr) == i+1 else ", "
