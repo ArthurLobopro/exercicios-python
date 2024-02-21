@@ -4,7 +4,7 @@ from re import sub
 def contador(FROM, TO, interval=1):
     print(f"Contando de {FROM} até {TO} de {interval} em {interval}")
 
-    if FROM > TO and interval > 0:
+    if FROM > TO and interval > 0 or FROM < TO and interval < 0:
         interval *= -1
 
     # range doesn't includes the last term, to we need an aditional
