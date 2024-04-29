@@ -2,6 +2,10 @@
 
 Exercícios Feitos no curso de python do Curso em Vídeo.
 
+## Importante
+
+Para rodar alguns desafios que usam módulos, é necessário declarar a variável PYTHONPATH=./Desafios
+
 ## Arquivos especiais:
 
 <details>
