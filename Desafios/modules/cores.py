@@ -1,39 +1,46 @@
 colors = {
-    'white':  0,
-    'red':    1,
-    'green':  2,
-    'yellow': 3,
-    'blue':   4,
-    'purple': 5,
-    'cyan':   6,
-    'gray':   7
-    }
-styles = {
-    'bold':      1,
-    'underline': 4,
-    'negative':  7
+    "black": 30,
+    "red": 31,
+    "green": 32,
+    "yellow": 33,
+    "blue": 34,
+    "magenta": 35,
+    "cyan": 36,
+    "white": 37
 }
-def cprint(string, c='', bgc='', style=0):
-    if c != '':
-        c= ('3{}'.format(colors[c]))
-    if bgc!= '':
-        bgc= ('4{}'.format(colors[bgc]))
-    if style != 0:
-        style = styles[style]
-    if bgc=='':
-        print ('\033[{};{}m{}'.format(style, c, string), end='\033[m')
-    else:
-        print ('\033[{};{};{}m{}'.format(style, c, bgc, string), end='\033[m')
 
-def creturn (string, c='', bgc='', style=0,end='\033[m'):
-    if c != '':
-        c= ('3{}'.format(colors[c]))
-    if bgc!= '':
-        bgc= ('4{}'.format(colors[bgc]))
-    if style != 0:
-        style = styles[style]
-    if bgc=='':
-        string_return = '\033[{};{}m{}{}'.format(style, c, string,end)
-    else:
-        string_return = '\033[{};{};{}m{}{}'.format(style, c, bgc, string,end)
-    return string_return
+BG_COLORS = {
+    "black": 40,
+    "red": 41,
+    "green": 42,
+    "yellow": 43,
+    "blue": 44,
+    "magenta": 45,
+    "cyan": 46,
+    "white": 47
+}
+
+STYLES = {
+    "bold":      1,
+    "underline": 4,
+    "negative":  7,
+    "default": 0
+}
+
+
+def cprint(string: str, color="", bgcolor="", style="default", end="\n", reset=True):
+    print(creturn(string, color, bgcolor, style, reset=reset), end=end)
+
+
+def creturn(string: str, c="", bgc="", style="default", reset=True):
+    if c in colors:
+        c = colors[c]
+
+    style_code = STYLES[style]
+
+    if not bgc in BG_COLORS:
+        return f"\033[{style_code};{c}m{string}" + "\033[0m" if reset else ""
+
+    bgc = BG_COLORS[bgc]
+
+    return f"\033[{style_code};{c};{bgc}m{string}" + "\033[0m" if reset else ""
