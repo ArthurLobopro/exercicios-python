@@ -1,10 +1,14 @@
 import json
+from os import path
 from jsonschema import validate
 from utils import readInt, readString, title
 from modules.cores import cprint
 
-FILEPATH = "./data.json"
-FILE = open(FILEPATH, "r+")
+FILEPATH = path.abspath(path.join(path.dirname(__file__), "./data.json"))
+
+if not path.isfile(FILEPATH):
+    open(FILEPATH, "w").close()
+
 
 PERSONSCHEMA = {
     "type": "object",
@@ -25,7 +29,8 @@ dataAtual = []
 def loadData():
     global dataAtual
     try:
-        dataAtual = json.loads(FILE.read())
+        with open(FILEPATH, "r") as FILE:
+            dataAtual = json.loads(FILE.read())
     except:
         dataAtual = []
     finally:
@@ -35,8 +40,9 @@ def loadData():
 def writeData(data):
     try:
         validate(data, DATASCHEMA)
-        FILE.write(json.dumps(data))
-        FILE.flush()
+        with open(FILEPATH, "w") as FILE:
+            FILE.write(json.dumps(data))
+            FILE.flush()
     except:
         print("Erro ao salvar o arquivo")
 
